@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwadTales – Stories of Flavors | स्वाद की कहानियाँ</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #ff7043; color: white; padding: 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 2em; }
+    nav { margin-top: 10px; }
+    nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+    .hero { background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover no-repeat; color: white; text-align: center; padding: 100px 20px; }
+    .hero h2 { font-size: 2.5em; margin: 0; }
+    .hero p { font-size: 1.2em; margin: 10px 0 20px; }
+    .hero button { padding: 10px 20px; font-size: 1em; background: #ff7043; border: none; color: white; cursor: pointer; border-radius: 5px; }
+    section { padding: 50px 20px; text-align: center; opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+    section.visible { opacity: 1; transform: translateY(0); }
+    .recipes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .recipe-card { background: #fff3e0; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .recipe-card h3 { margin: 0 0 10px; }
+    iframe { width: 100%; height: 300px; border-radius: 10px; }
+    footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
+    footer a { color: #ff7043; margin: 0 10px; text-decoration: none; }
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 1.8em; }
+      .hero p { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SwadTales</h1>
+    <p>Stories of Flavors | स्वाद की कहानियाँ</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#videos">Videos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to SwadTales</h2>
+    <p>Every Dish Tells a Story | हर पकवान की अपनी दास्तान</p>
+    <button onclick="document.getElementById('recipes').scrollIntoView({behavior: 'smooth'});">Explore Recipes | रेसिपी देखें</button>
+  </section>
+
+  <section id="about">
+    <h2>About Us | हमारे बारे में</h2>
+    <p>SwadTales brings you delicious recipes, kitchen hacks, and food stories from India and beyond. <br>
+    SwadTales आपको स्वादिष्ट रेसिपी, किचन टिप्स और खाने से जुड़ी कहानियाँ लाता है।</p>
+  </section>
+
+  <section id="recipes">
+    <h2>Our Recipes | हमारी रेसिपी</h2>
+    <div class="recipes">
+      <div class="recipe-card">
+        <h3>Paneer Butter Masala | पनीर बटर मसाला</h3>
+        <p>A creamy, rich Indian curry loved worldwide.</p>
+      </div>
+      <div class="recipe-card">
+        <h3>Masala Dosa | मसाला डोसा</h3>
+        <p>South Indian delicacy with crispy layers and spiced filling.</p>
+      </div>
+      <div class="recipe-card">
+        <h3>Gulab Jamun | गुलाब जामुन</h3>
+        <p>Sweet, soft, and syrupy – the heart of Indian desserts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <h2>Watch Our Videos | हमारे वीडियो देखें</h2>
+    <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" title="Sample Cooking Video" allowfullscreen></iframe>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Follow Us | संपर्क करें</h2>
+    <p>Follow us on social media for more recipes and stories:</p>
+    <p>
+      <a href="#">YouTube</a> |
+      <a href="#">Instagram</a> |
+      <a href="#">TikTok</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 SwadTales | Stories of Flavors | स्वाद की कहानियाँ</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const boxTop = sec.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          sec.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>
